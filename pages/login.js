@@ -42,9 +42,10 @@ export default function Home() {
         <h1 className="title">exe</h1>
         <p className="subtitle">find your group</p>
         <img src="login.png"></img>
-        <div className="form">
+        <div className="form__group field">
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField id="standard-basic" label="Email" />
+                <input type="input" class="form__field" placeholder="Email" name="name" id='name' required />
+                <label for="name" class="form__label">Email</label>
                 <TextField id="standard-basic" label="Password" />
             </form>
         </div>
@@ -60,8 +61,77 @@ export default function Home() {
          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
       </footer>
 
-      <style jsx>
+      <style js>
         {`
+        $primary: #11998e;
+        $secondary: #38ef7d;
+        $white: #fff;
+        $gray: #9b9b9b;
+
+        .form__field {
+            font-family: inherit;
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid $gray;
+            outline: 0;
+            font-size: 1.3rem;
+            color: $white;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+        
+            &::placeholder {
+            color: transparent;
+            }
+        
+            &:placeholder-shown ~ .form__label {
+            font-size: 1.3rem;
+            cursor: text;
+            top: 20px;
+            }
+        }
+
+        .form__group {
+            position: relative;
+            padding: 15px 0 0;
+            margin-top: 10px;
+            width: 50%;
+          }
+
+
+        .form__label {
+            position: absolute;
+            top: 0;
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            color: $gray;
+        }
+        
+        .form__field:focus {
+            ~ .form__label {
+            position: absolute;
+            top: 0;
+            display: block;
+            transition: 0.2s;
+            font-size: 1rem;
+            color: $primary;
+            font-weight:700;    
+            }
+            padding-bottom: 6px;  
+            font-weight: 700;
+            border-width: 3px;
+            border-image: linear-gradient(to right, $primary,$secondary);
+            border-image-slice: 1;
+        }
+        /* reset input */
+        .form__field{
+            &:required,&:invalid { box-shadow:none; }
+        }
+
+
+
+
           .container {
             min-height: 100vh;
             padding: 0 0rem;
