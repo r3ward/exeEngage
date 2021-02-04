@@ -38,7 +38,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">exe</h1>
-        <p className="subtitle">find your group</p>
+        <p className="subtitle">for students</p>
         <Link href="/login">
           <Button variant="outlined" className={classes.button}>
             Log in

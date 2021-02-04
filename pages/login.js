@@ -40,7 +40,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">exe</h1>
-        <p className="subtitle">find your group</p>
+        <p className="subtitle">for students</p>
         <img src="login.png"></img>
         <div className="form">
             <form className={classes.root} noValidate autoComplete="off">
