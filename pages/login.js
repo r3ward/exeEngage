@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,26 +41,23 @@ export default function Home() {
       <main>
         <h1 className="title">exe</h1>
         <p className="subtitle">find your group</p>
+        <img src="login.png"></img>
+        <div className="form">
+            <form className={classes.root} noValidate autoComplete="off">
+                <TextField id="standard-basic" label="Email" />
+                <TextField id="standard-basic" label="Password" />
+            </form>
+        </div>
         <Link href="/login">
           <Button variant="outlined" className={classes.button}>
             Log in
           </Button>
         </Link>
-        <Link href="/signup">
-          <Button variant="outlined" className={classes.button}>
-            Sign up
-          </Button>
-        </Link>
+        <p className="pwd">Can't remember your password? <a href="/signup">Click here</a></p>
       </main>
 
       <footer>
-        <a
-          href="https://www.exeter.ac.uk/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Written and developed in Exeter.
-        </a>
+         <p>Don't have an account? <a href="/signup">Sign Up</a></p>
       </footer>
 
       <style jsx>
@@ -80,12 +79,30 @@ export default function Home() {
             font-size: 1.2rem;
           }  
 
+          img {
+              width: 20%;
+              padding-top: 3rem;
+          }
+
+          .form {
+              width: 40%; 
+              padding-top: 1rem;
+              padding-bottom: 3rem;
+              align-items: center;
+              text-align: center;
+              justify-content: center;
+          }
+
+          .pwd {
+              padding-top: 1rem;
+              font-size: 0.9rem;
+          }
+
           main {
             padding: 5rem 0;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
           }
 
@@ -98,26 +115,25 @@ export default function Home() {
           }
 
           footer a {
-            display: flex;
+            display: inline;
             justify-content: center;
             align-items: center;
           }
 
+
           a {
             color: inherit;
-            text-decoration: none;
           }
 
           .title {
             margin: 0;
-            line-height: 1.15;
-            font-size: 6rem;
+            line-height: 1;
             font-family: Quicksand;
             font-style: normal;
             font-weight: 700;
-            font-size: 144px;
-            line-height: 180px;
+            font-size: 80px;
             text-align: center;
+           
           }
         `}
       </style>
